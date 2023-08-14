@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <style>
+   .menu-toggle {
+      display: block;
+      width: 30px;
+      height: 20px;
+      position: relative;
+      cursor: pointer;
+      margin-top: 20px;
+      margin-right: 20px;
+    }
+
+    .bar {
+      width: 30px;
+      height: 3px;
+      background-color: #000;
+      margin: 6px 0;
+      transition: 0.4s;
+    }
+
+    .change .bar:nth-child(1) {
+      transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    .change .bar:nth-child(2) {
+      opacity: 0;
+    }
+
+    .change .bar:nth-child(3) {
+      transform: rotate(45deg) translate(-5px, -6px);
+    }
+    img {
+	margin-right:200px;
+      width: 100%;
+    }
+    .menu-content {
+  display: none;
+  position: absolute;
+  top: 60px; /* Adjust this value as needed */
+  background-color: #000;
+  border: 1px solid #333;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+}
+
+.menu-content.show {
+  display: block;
+}
+
+.menu-content a {
+  display: block;
+  margin-bottom: 10px;
+  text-decoration: none;
+  color: white;
+  padding: 5px 10px; /* Add padding for spacing */
+  border-bottom: 1px solid white; /* Add white border between list items */
+  transition: color 0.3s ease;
+}
+
+.menu-content a:last-child {
+  margin-bottom: 0; /* Remove margin from the last list item */
+}
+
+.menu-content a:hover {
+  color: #ffd700; /* Change the color on hover */
+}
+   table {
+     border-collapse: collapse;
+     width: 100%;
+     max-width: 800px;
+     margin: auto;
+   }
+
+   th, td {
+     border: 1px solid #ccc;
+     padding: 8px;
+     text-align: center;
+     cursor: pointer;
+   }
+
+   th {
+     background-color: #f2f2f2;
+   }
+
+   td {
+     background-color: #fff;
+   }
+
+   td.selected {
+     background-color: #ffd700;
+   }
+.table-container {
+     display: flex;
+     align-items: flex-start;
+   }
+
+   .table-wrapper {
+     flex: 1;
+     margin-right: 20px;
+   }
+
+   .table-img {
+     width: 20%;
+     position: relative;
+     top: -20px; /* Adjust this value as needed */
+   }
+   .time-slots {
+     display: none;
+     padding: 10px;
+   }
+
+   .time-slot {
+     margin: 5px;
+     cursor: pointer;
+   }
+
+   .form-container {
+     margin-top: 20px;
+     padding: 20px;
+     border: 1px solid #ccc;
+     border-radius: 5px;
+   }
+
+   .form-container label {
+     display: block;
+     margin-bottom: 5px;
+   }
+
+   .form-container input,
+   .form-container select {
+     width: 100%;
+     padding: 5px;
+     margin-bottom: 10px;
+   }
+
+   .form-container button {
+     padding: 8px 16px;
+     background-color: #ffd700;
+     border: none;
+     border-radius: 5px;
+     cursor: pointer;
+   }
+   </style>
+</head>
+<body>
+<div class="menu-toggle" id="menuIcon">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
+  <div class="menu-content" id="menuContent">
+    <a href="dr.html">Home</a>
+	<a href="appo.html">Book an appointment</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <div class="table-container">
+  <div class="table-wrapper">
+  <h1>Avilable days this month</h1>
+  <span>
+  <table>
+    <thead>
+      <tr>
+        <th>Mon</th>
+        <th>Tue</th>
+        <th>Wed</th>
+        <th>Thu</th>
+        <th>Fri</th>
+        <th>Sat</th>
+        <th>Sun</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td class="selectable"><del>1</del></td>
+        <td class="selectable">2</td>
+        <td class="selectable">3</td>
+		<td class="selectable">4</td>
+		<td class="selectable">5</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td class="selectable">7</td>
+        <td class="selectable">8</td>
+        <td class="selectable">9</td>
+        <td class="selectable">10</td>
+		<td class="selectable"><del>11</del></td>
+		<td class="selectable">12</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td class="selectable">14</td>
+        <td class="selectable">15</td>
+        <td class="selectable">16</td>
+        <td class="selectable"><del>17</del></td>
+		<td class="selectable"><del>18</del></td>
+		<td class="selectable">19</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td class="selectable">21</td>
+        <td class="selectable">22</td>
+        <td class="selectable"><del>23</del></td>
+        <td class="selectable">24</td>
+		<td class="selectable">25</td>
+		<td class="selectable">26</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td class="selectable">28</td>
+        <td class="selectable">29</td>
+        <td class="selectable">30</td>
+        <td class="selectable"><del>31</del></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <img src="C:\Users\USER\Downloads\appo.jpg" class="table-img">
+</div>
+  <div class="time-slots" id="timeSlotsContainer">
+    <!-- Time slots will be populated here dynamically -->
+  </div>
+
+  <div class="form-container">
+    <form id="appointmentForm">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="phone">Phone Number:</label>
+      <input type="tel" id="phone" name="phone" required>
+
+      <label for="date">Choose a Date:</label>
+      <input type="date" id="date" name="date" required>
+      <select>
+	  <option selected hidden>Choose your Doctor name</option>
+	  <option>Dr. Hussein Kteish</option>
+	  <option>Dr. Waed Kteish</option>
+	  </select>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+  
+  <script>
+  document.getElementById("menuIcon").addEventListener("click", function() {
+      this.classList.toggle("change");
+      document.getElementById("menuContent").classList.toggle("show");
+    });
+    const selectableCells = document.querySelectorAll('.selectable');
+    const timeSlotsContainer = document.getElementById('timeSlotsContainer');
+    const form = document.getElementById('appointmentForm');
+
+    selectableCells.forEach(cell => {
+      cell.addEventListener('click', () => {
+        // ... (rest of the cell click logic) ...
+      });
+    });
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+      const selectedDate = document.querySelector('.selectable.selected');
+      const selectedTime = document.querySelector('.time-slot.selected');
+
+      if (!selectedDate || !selectedTime) {
+        alert('Please select a date and time slot.');
+      } else {
+        const name = document.getElementById('name').value;
+        const phone = document.getElementById('phone').value;
+        const date = selectedDate.textContent;
+        const time = selectedTime.textContent;
+        
+        // You can implement your own submission logic here
+        alert(`Thank you, ${name}! Your appointment is scheduled for ${date} at ${time}. We'll contact you at ${phone}.`);
+      }
+    });
+  </script>
+</body>
+</html>

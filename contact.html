@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    a:link {
+      text-decoration: none;
+    }
+
+    .menu-toggle {
+      display: block;
+      width: 30px;
+      height: 20px;
+      position: relative;
+      cursor: pointer;
+      margin-top: 20px;
+      margin-right: 20px;
+    }
+
+    .bar {
+      width: 30px;
+      height: 3px;
+      background-color: #000;
+      margin: 6px 0;
+      transition: 0.4s;
+    }
+
+    .change .bar:nth-child(1) {
+      transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    .change .bar:nth-child(2) {
+      opacity: 0;
+    }
+
+    .change .bar:nth-child(3) {
+      transform: rotate(45deg) translate(-5px, -6px);
+    }
+
+    .menu-content {
+      display: none;
+      position: absolute;
+      top: 60px;
+      background-color: #000;
+      border: 1px solid #333;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      padding: 10px;
+      border-radius: 5px;
+      color: white;
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+    }
+
+    .menu-content.show {
+      display: block;
+    }
+
+    .menu-content a {
+      display: block;
+      margin-bottom: 10px;
+      text-decoration: none;
+      color: white;
+      padding: 5px 10px;
+      border-bottom: 1px solid white;
+      transition: color 0.3s ease;
+    }
+
+    .menu-content a:last-child {
+      margin-bottom: 0;
+    }
+
+    .menu-content a:hover {
+      color: #ffd700;
+    }
+
+    .image-animation-container {
+      display: inline-block;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .image-animation {
+      position: relative;
+      left: -100%;
+      animation: slideIn 1s ease-in-out forwards;
+    }
+
+    @keyframes slideIn {
+      to {
+        left: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="menu-toggle" id="menuIcon">
+  <div class="bar"></div>
+  <div class="bar"></div>
+  <div class="bar"></div>
+</div>
+<div class="menu-content" id="menuContent">
+  <a href="dr.html">Home</a>
+  <a href="appo.html">Book an appointment</a>
+  <a href="contact.html">Contact</a>
+</div><br><br><br><br><br><br><br><br><br>
+Dr. Pro. Hussein:<br><br>
+<a href="https://api.whatsapp.com/send?phone=+9613829546" target="_blank">
+  <img src="C:\Users\USER\Downloads\wp.jpg" width="20" class="image-animation"> Whatsapp
+</a><br><br>
+<a href="https://fb.com/HKHacker.Game.Over" target="_blank">
+  <img src="C:\Users\USER\Downloads\fbimg.jpg" width="20" class="image-animation"> Facebook
+</a><br><br>
+<a href="https://github.com" target="_blank">
+  <img src="C:\Users\USER\Downloads\github-logo-2E3852456C-seeklogo.com.png" width="20" class="image-animation"> Github
+</a><br><br>
+Dr. Waed Kteish:<br><br>
+<a href="https://api.whatsapp.com/send?phone=+9613007763" target="_blank">
+  <img src="C:\Users\USER\Downloads\wp.jpg" width="20" class="image-animation"> Whatsapp
+</a><br><br>
+<script>
+  document.getElementById("menuIcon").addEventListener("click", function() {
+    this.classList.toggle("change");
+    document.getElementById("menuContent").classList.toggle("show");
+  });
+</script>
+</body>
+</html>
