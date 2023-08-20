@@ -5,150 +5,204 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <style>
+   body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: black;
+      color: white;
+   }
+
+   /* Navigation Menu */
    .menu-toggle {
       display: block;
       width: 30px;
       height: 20px;
-      position: relative;
+      position: fixed;
       cursor: pointer;
       margin-top: 20px;
       margin-right: 20px;
-    }
+   }
 
-    .bar {
+   .bar {
       width: 30px;
       height: 3px;
-      background-color: #000;
+      background-color: gold;
       margin: 6px 0;
       transition: 0.4s;
-    }
+   }
 
-    .change .bar:nth-child(1) {
+   .change .bar:nth-child(1) {
       transform: rotate(-45deg) translate(-5px, 6px);
-    }
+   }
 
-    .change .bar:nth-child(2) {
+   .change .bar:nth-child(2) {
       opacity: 0;
-    }
+   }
 
-    .change .bar:nth-child(3) {
+   .change .bar:nth-child(3) {
       transform: rotate(45deg) translate(-5px, -6px);
-    }
-    img {
-	margin-right:200px;
-      width: 100%;
-    }
-    .menu-content {
-  display: none;
-  position: absolute;
-  top: 60px; /* Adjust this value as needed */
-  background-color: #000;
-  border: 1px solid #333;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  padding: 10px;
-  border-radius: 5px;
-  color: white;
-  font-family: Arial, sans-serif;
-  font-size: 14px;
-}
+   }
 
-.menu-content.show {
-  display: block;
-}
+   .menu-content {
+      display: none;
+      position: absolute;
+      top: 60px;
+      background-color: black;
+      border: 1px solid gold;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      padding: 10px;
+      border-radius: 5px;
+      font-size: 14px;
+   }
 
-.menu-content a {
-  display: block;
-  margin-bottom: 10px;
-  text-decoration: none;
-  color: white;
-  padding: 5px 10px; /* Add padding for spacing */
-  border-bottom: 1px solid white; /* Add white border between list items */
-  transition: color 0.3s ease;
-}
+   .menu-content.show {
+      display: block;
+	  position:fixed;
+   }
 
-.menu-content a:last-child {
-  margin-bottom: 0; /* Remove margin from the last list item */
-}
+   .menu-content a {
+      display: block;
+      margin-bottom: 10px;
+      text-decoration: none;
+      color: gold;
+      padding: 5px 10px;
+      transition: color 0.3s ease;
+   }
 
-.menu-content a:hover {
-  color: #ffd700; /* Change the color on hover */
-}
+   .menu-content a:last-child {
+      margin-bottom: 0;
+   }
+
+   .menu-content a:hover {
+      color: white;
+   }
+
+   /* Table and Calendar */
    table {
-     border-collapse: collapse;
-     width: 100%;
-     max-width: 800px;
-     margin: auto;
+      border-collapse: collapse;
+	  border:solid gold;
+      width: 100%;
+      max-width: 800px;
+      margin: auto;
    }
 
    th, td {
-     border: 1px solid #ccc;
-     padding: 8px;
-     text-align: center;
-     cursor: pointer;
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: center;
+      cursor: pointer;
    }
 
    th {
-     background-color: #f2f2f2;
+      background-color: gold;
+	  color:black;
    }
 
    td {
-     background-color: #fff;
+      background-color: black;
+	  border:solid #EDC967;
    }
 
    td.selected {
-     background-color: #ffd700;
+      color: black;
    }
-.table-container {
-     display: flex;
-     align-items: flex-start;
+
+   .table-container {
+      display: flex;
+      align-items: flex-start;
    }
 
    .table-wrapper {
-     flex: 1;
-     margin-right: 20px;
+      flex: 1;
+      margin-right: 20px;
    }
 
-   .table-img {
-     width: 20%;
-     position: relative;
-     top: -20px; /* Adjust this value as needed */
-   }
-   .time-slots {
-     display: none;
-     padding: 10px;
-   }
-
-   .time-slot {
-     margin: 5px;
-     cursor: pointer;
-   }
-
+   /* Appointment Form */
    .form-container {
-     margin-top: 20px;
-     padding: 20px;
-     border: 1px solid #ccc;
-     border-radius: 5px;
-     width:70%;
+      margin-top: 20px;
+      padding: 20px;
+      border: 1px solid gold;
+      border-radius: 5px;
    }
 
    .form-container label {
-     display: block;
-     margin-bottom: 5px;
+      display: block;
+      margin-bottom: 5px;
    }
 
    .form-container input,
    .form-container select {
-     width: 100%;
-     padding: 5px;
-     margin-bottom: 10px;
+      width: 100%;
+      padding: 5px;
+      margin-bottom: 10px;
    }
 
    .form-container button {
-     padding: 8px 16px;
-     background-color: #ffd700;
-     border: none;
+      padding: 8px 16px;
+      background-color: #d4af37;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      color: black;
+   }
+   .container {
+  width: 200px;
+  height:60px;
+  background: white;
+  border-radius: 10px;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+    0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
+   #captcha {
+  border-radius: 5px;
+  border: 1px solid gainsboro;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+input[type="text"] {
+  padding: 12px 20px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 12px 0;
+}
+
+
+.cap {
+  background-color: #2f66f5;
+  border: none;
+  color: white;
+  padding: 12px 30px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 5px;
+}
+
+canvas {
+  pointer-events: none;
+}
+img {
+	margin-right:200px;
+      width: 20%;
+    }
+	.form-container {
+	 border: 1px solid gold;
+     margin-top: 20px;
+     padding: 20px;
      border-radius: 5px;
-     cursor: pointer;
+     width:70%;
    }
 	   @media only screen and (max-width: 800px) {
 	    body {
@@ -248,11 +302,10 @@
   </div>
 
   <div class="form-container">
-    <form id="appointmentForm">
+   <form id="appointmentForm">
       <label for="name">Name:</label>
       <input type="text" style="width:100px" id="name" name="name" required>
-
-      <label for="phone">Phone Number:</label>
+       <label for="phone">Phone Number:</label>
       <input type="tel" style="width:100px" id="phone" name="phone" required>
 
       <label for="date">Choose a Date:</label>
@@ -262,42 +315,65 @@
 	  <option>Dr. Hussein Kteish</option>
 	  <option>Dr. Waed Kteish</option>
 	  </select><br><br>
-      <button type="submit">Submit</button>
-    </form>
-  </div>
+	  <p style="color:white;">Human Verification:</p><br>
+	  <div class="container">
+        <div style="width:100%;margin-top:30px;display: flex; justify-content: space-between;">
+            <div id="captcha">
+            </div>
+            <button  style="height:25px; margin-top:20px" class="regenerateCaptchaBtn" style="width: 5rem;" onclick="createCaptcha()">
+                <i class="fas fa-redo">change</i>
+            </button>
+        </div>
+        <input type="text" placeholder="Enter Captcha" id="cpatchaTextBox" />
+        <button  onclick="validateCaptcha()">Verify</button>
+    </div><br>
+	</div>
+	<button style="width:100px;margin-left:400px" type="submit">Submit</button>
+   </form>
   
   <script>
-  document.getElementById("menuIcon").addEventListener("click", function() {
+   document.getElementById("menuIcon").addEventListener("click", function() {
       this.classList.toggle("change");
       document.getElementById("menuContent").classList.toggle("show");
     });
-    const selectableCells = document.querySelectorAll('.selectable');
-    const timeSlotsContainer = document.getElementById('timeSlotsContainer');
-    const form = document.getElementById('appointmentForm');
+	var code;
 
-    selectableCells.forEach(cell => {
-      cell.addEventListener('click', () => {
-        // ... (rest of the cell click logic) ...
-      });
-    });
+function createCaptcha() {
+    // clear the contents of captcha div first 
+    document.getElementById('captcha').innerHTML = "";
+    var charsArray =
+        "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    var lengthOtp = 6;
+    var captcha = [];
+    for (var i = 0; i < lengthOtp; i++) {
+        //below code will not allow Repetition of Characters
+        var index = Math.floor(Math.random() * charsArray.length + 1); //get the next character from the array
+        if (captcha.indexOf(charsArray[index]) == -1)
+            captcha.push(charsArray[index]);
+        else i--;
+    }
+    var canv = document.createElement("canvas");
+    canv.id = "captcha";
+    canv.width = 100;
+    canv.height = 50;
+    var ctx = canv.getContext("2d");
+    ctx.font = "25px Georgia";
+    ctx.strokeText(captcha.join(""), 0, 30);
+    //storing captcha so that can validate you can save it somewhere else according to your specific requirements
+    code = captcha.join("");
+    document.getElementById("captcha").appendChild(canv); // adds the canvas to the body element
+}
 
-    form.addEventListener('submit', function(event) {
-      event.preventDefault();
-      const selectedDate = document.querySelector('.selectable.selected');
-      const selectedTime = document.querySelector('.time-slot.selected');
-
-      if (!selectedDate || !selectedTime) {
-        alert('Please select a date and time slot.');
-      } else {
-        const name = document.getElementById('name').value;
-        const phone = document.getElementById('phone').value;
-        const date = selectedDate.textContent;
-        const time = selectedTime.textContent;
-        
-        // You can implement your own submission logic here
-        alert(`Thank you, ${name}! Your appointment is scheduled for ${date} at ${time}. We'll contact you at ${phone}.`);
-      }
-    });
-  </script>
+function validateCaptcha() {
+    event.preventDefault();
+    debugger
+    if (document.getElementById("cpatchaTextBox").value == code) {
+        alert("Valid Captcha")
+    } else {
+        alert("Invalid Captcha. try Again");
+        createCaptcha();
+    }
+}
+</script>
 </body>
 </html>
