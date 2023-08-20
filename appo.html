@@ -17,7 +17,7 @@
       display: block;
       width: 30px;
       height: 20px;
-      position: fixed;
+      position: relative;
       cursor: pointer;
       margin-top: 20px;
       margin-right: 20px;
@@ -57,7 +57,6 @@
 
    .menu-content.show {
       display: block;
-	  position:fixed;
    }
 
    .menu-content a {
@@ -222,7 +221,7 @@ img {
     }
    </style>
 </head>
-<body>
+<body onload="createCaptcha()">
 <div class="menu-toggle" id="menuIcon">
     <div class="bar"></div>
     <div class="bar"></div>
