@@ -17,7 +17,7 @@
       display: block;
       width: 30px;
       height: 20px;
-      position: relative;
+      position: fixed;
       cursor: pointer;
       margin-top: 20px;
       margin-right: 20px;
@@ -57,6 +57,7 @@
 
    .menu-content.show {
       display: block;
+	  position:fixed;
    }
 
    .menu-content a {
@@ -89,7 +90,6 @@
       border: 1px solid #ccc;
       padding: 8px;
       text-align: center;
-      cursor: pointer;
    }
 
    th {
@@ -146,7 +146,7 @@
    }
    .container {
   width: 200px;
-  height:60px;
+  height:80px;
   background: white;
   border-radius: 10px;
   padding: 2rem;
@@ -203,7 +203,7 @@ img {
      border-radius: 5px;
      width:70%;
    }
-	   @media only screen and (max-width: 800px) {
+    @media only screen and (max-width: 800px) {
 	    body {
       background-size: 400px 800px;
       background-attachment:fixed;
@@ -233,12 +233,11 @@ img {
     <a href="contact.html">Contact</a>
   </div>
   <div class="table-container">
-  <div class="table-wrapper">
+  <div class="table-wrapper"><br><br>
   <h1>Avilable days this month</h1>
-  <span>
-  <table>
-    <thead>
-      <tr>
+      <table>
+         <thead>
+            <tr>
         <th>Mon</th>
         <th>Tue</th>
         <th>Wed</th>
@@ -291,19 +290,21 @@ img {
         <td class="selectable">30</td>
         <td class="selectable"><del>31</del></td>
       </tr>
-    </tbody>
-  </table>
-  </div>
-  <img src="appo.jpg" class="table-img">
+         </thead>
+         <tbody>
+            <!-- Your table content here -->
+         </tbody>
+      </table>
+   </div>
+   <img style="float:left" src="appo.jpg" class="table-img">
 </div>
-  <div class="time-slots" id="timeSlotsContainer">
-    <!-- Time slots will be populated here dynamically -->
-  </div>
-
-  <div class="form-container">
+<div class="time-slots" id="timeSlotsContainer">
+   <!-- Time slots will be populated here dynamically -->
+</div>
+<div class="form-container">
    <form id="appointmentForm">
       <label for="name">Name:</label>
-      <input type="text" style="width:100px" id="name" name="name" required>
+      <input type="text" style="width:120px;height:30px" id="name" name="name" required>
        <label for="phone">Phone Number:</label>
       <input type="tel" style="width:100px" id="phone" name="phone" required>
 
@@ -314,9 +315,9 @@ img {
 	  <option>Dr. Hussein Kteish</option>
 	  <option>Dr. Waed Kteish</option>
 	  </select><br><br>
-	  <p style="color:white;">Human Verification:</p><br>
+	  <p style="color:white;">Human Verification:</p>
 	  <div class="container">
-        <div style="width:100%;margin-top:30px;display: flex; justify-content: space-between;">
+        <div style="width:100%;margin-top:50px;display: flex; justify-content: space-between;">
             <div id="captcha">
             </div>
             <button  style="height:25px; margin-top:20px" class="regenerateCaptchaBtn" style="width: 5rem;" onclick="createCaptcha()">
@@ -324,13 +325,14 @@ img {
             </button>
         </div>
         <input type="text" placeholder="Enter Captcha" id="cpatchaTextBox" />
-        <button  onclick="validateCaptcha()">Verify</button>
+		<p id="captchaMessage" style="color: red; margin-top: 1px;"></p>
+        <button onclick="validateCaptcha()">Verify</button>
     </div><br>
 	</div>
 	<button style="width:100px;margin-left:400px" type="submit">Submit</button>
    </form>
-  
-  <script>
+
+<script>
    document.getElementById("menuIcon").addEventListener("click", function() {
       this.classList.toggle("change");
       document.getElementById("menuContent").classList.toggle("show");
@@ -365,14 +367,32 @@ function createCaptcha() {
 
 function validateCaptcha() {
     event.preventDefault();
-    debugger
-    if (document.getElementById("cpatchaTextBox").value == code) {
-        alert("Valid Captcha")
+    const captchaTextBox = document.getElementById("cpatchaTextBox");
+    const captchaMessage = document.getElementById("captchaMessage");
+    
+    if (captchaTextBox.value === code) {
+        captchaMessage.textContent = "Done";
+        captchaMessage.style.color = "green";
     } else {
-        alert("Invalid Captcha. try Again");
+        captchaMessage.textContent = "Invalid Captcha,try again";
+        captchaMessage.style.color = "red";
         createCaptcha();
     }
 }
+
+function validateCaptchaAndSubmit(event) {
+    event.preventDefault();
+    if (document.getElementById("cpatchaTextBox").value === code) {
+        alert("Submited");
+        document.getElementById("appointmentForm").submit(); // Submit the form
+    } else {
+        alert("Please solve the captcha correctly");
+    }
+}
+
+// Attach the modified function to the form's submit event
+document.getElementById("appointmentForm").addEventListener("submit", validateCaptchaAndSubmit);
+</script>
 </script>
 </body>
 </html>
