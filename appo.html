@@ -371,7 +371,7 @@ function validateCaptcha() {
     const captchaMessage = document.getElementById("captchaMessage");
     
     if (captchaTextBox.value === code) {
-        captchaMessage.textContent = "Done";
+        captchaMessage.textContent = "Verification Done";
         captchaMessage.style.color = "green";
     } else {
         captchaMessage.textContent = "Invalid Captcha,try again";
@@ -383,7 +383,7 @@ function validateCaptcha() {
 function validateCaptchaAndSubmit(event) {
     event.preventDefault();
     if (document.getElementById("cpatchaTextBox").value === code) {
-        alert("Submited");
+        alert("Submitted");
         document.getElementById("appointmentForm").submit(); // Submit the form
     } else {
         alert("Please solve the captcha correctly");
