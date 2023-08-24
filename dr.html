@@ -10,48 +10,6 @@
       background-image: url("dr.jpg");
       background-size: cover;
     }
-body::after,
-    body::before,
-    .border-top::after,
-    .border-bottom::after,
-    .border-left::after,
-    .border-right::after {
-      content: "";
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      border: 5px solid rgba(255, 255, 255, 0.3);
-      z-index: -1;
-      animation: border-animation 10s infinite linear;
-    }
-
-    .border-top::after {
-      top: 0;
-      left: 0;
-    }
-	 .border-bottom::after {
-      bottom: 0;
-      left: 0;
-    }
-
-    .border-left::after {
-      top: 0;
-      left: 0;
-      height: 100%;
-    }
-
-    .border-right::after {
-      top: 0;
-      right: 0;
-      height: 100%;
-    }
-@keyframes border-animation {
-      100% {
-        transform: translate(-50%,-50%);
-		rotate(-360deg);
-      }
-    }
     header {
       margin-left: auto;
       margin-right: auto;
